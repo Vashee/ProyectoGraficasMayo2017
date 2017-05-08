@@ -1,0 +1,17 @@
+# cube_material.mtl for cube_material.obj
+
+# material name:
+newmtl cube_mat
+
+# light power:
+illum 1
+# AMBIENT COMPONENT:
+Ka 0.1 0.01 0.01
+# DIFFUSE COMPONENT:
+Kd 1.0 0.101960786 0.05882353
+# SPECULAR COPONENT:
+Ks 0.0 0.0 0.0
+# SPECULAR POWER:
+Ns 1.0
+
+map_Kd Planks2_colormap.tga
