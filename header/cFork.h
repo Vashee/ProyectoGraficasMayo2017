@@ -22,5 +22,6 @@ public:
 	void draw();
 	GLMmodel* forkIzq;
 	GLMmodel* forkDer;
+	float mass;
 };
 

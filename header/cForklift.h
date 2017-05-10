@@ -10,10 +10,11 @@
 #include "freeglut.h"
 #include <time.h>
 #include <stdio.h>
-#include <math.h>
+#include <math.h> 
 #endif
-#include "glm.h"
+
 #include "cFork.h"
+#include "glm.h"
 
 
 class cForklift
@@ -29,5 +30,11 @@ public:
 	void put(float bajar);
 	GLMmodel* forkLift;
 	cFork* fork;
+	float pxFork;
+	float pzFork;
+	float upDown;
+	float mass;
+	float px;
+	float pz;
 };
 
