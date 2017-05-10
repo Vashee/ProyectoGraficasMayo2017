@@ -1,8 +1,7 @@
 #include "cForklift.h"
 
-float yAngle, zeto, px, pz, rot;
+float yAngle, zeto, rot;
 float py = 0.035f;
-float upDown = -0.6f;
 
 cForklift::cForklift()
 {
@@ -11,6 +10,12 @@ cForklift::cForklift()
 	glmFacetNormals(forkLift);
 	glmVertexNormals(forkLift, 45.0f);
 	fork = new cFork();
+	pxFork = -0.3f;
+	pzFork = 0.72f;
+	upDown = -0.6f;
+	mass = 1.0f;
+	px = 0.0f;
+	pz = 0.0f;
 }
 
 
@@ -30,7 +35,7 @@ void cForklift::draw() {
 		glTranslatef(px, py, pz); 
 		glRotatef(rot-90, 0, 1, 0);
 		glmDraw(forkLift, GLM_SMOOTH | GLM_TEXTURE);
-		glTranslatef(-0.3, upDown, 0.72);
+		glTranslatef(pxFork, upDown, pzFork);
 		fork->draw();
 	}
 	glPopMatrix();

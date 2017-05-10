@@ -12,6 +12,7 @@ cFork::cFork()
 	glmFacetNormals(forkDer);
 	glmVertexNormals(forkIzq, 45.0f);
 	glmVertexNormals(forkDer, 45.0f);
+	mass = 0.1f;
 }
 
 
