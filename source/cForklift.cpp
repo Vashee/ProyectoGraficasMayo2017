@@ -14,9 +14,7 @@ cForklift::cForklift()
 	glmFacetNormals(sinCaja);
 	glmVertexNormals(sinCaja, 45.0f);
 	activo = sinCaja;
-	glmUnitize(activo);
-	glmFacetNormals(activo);
-	glmVertexNormals(activo, 45.0f);
+
 	fork = new cFork();
 	pxFork = -0.3f;
 	pzFork = 0.72f;
