@@ -10,7 +10,7 @@
 #include "freeglut.h"
 #include <time.h>
 #include <stdio.h>
-#include <math.h> 
+#include <math.h>
 #endif
 
 #include "cFork.h"
@@ -20,21 +20,27 @@
 class cForklift
 {
 public:
-	cForklift();
-	~cForklift();
-	void update();
-	void draw();
-	void move(float fwdBack);
-	void rotate(float rotar);
-	void lift(float levantar);
-	void put(float bajar);
-	GLMmodel* forkLift;
-	cFork* fork;
-	float pxFork;
-	float pzFork;
-	float upDown;
-	float mass;
-	float px;
-	float pz;
+    cForklift();
+    ~cForklift();
+    void update();
+    void draw();
+    void move(float fwdBack);
+    void rotate(float rotar);
+    void lift(float levantar);
+    void put(float bajar);
+    void switchModel();
+    GLMmodel* forkLift;
+    GLMmodel* conCaja;
+    GLMmodel* sinCaja;
+    GLMmodel* activo;
+    
+    
+    cFork* fork;
+    float pxFork;
+    float pzFork;
+    float upDown;
+    float mass;
+    float px;
+    float pz;
 };
 
