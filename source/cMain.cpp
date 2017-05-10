@@ -1,9 +1,9 @@
 /*
- TC3022. Computer Graphics
- Itzel Reyes Pérez
- José Manuel Ballesteros
- External geometry loader activity.
- */
+TC3022. Computer Graphics
+Itzel Reyes Pérez
+José Manuel Ballesteros
+External geometry loader activity.
+*/
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -42,7 +42,7 @@ GLfloat*	mat0_shininess;
 GLfloat*	light0_position;
 GLfloat*	light1_position;
 
-cCaja* cajas[3];
+cCaja* cajas[6];
 cEscenario* escenario;
 cForklift* montaCarga;
 GLfloat deltaX, deltaY;
@@ -88,8 +88,15 @@ void init(void)
 	glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
 	glClearColor(0.2, 0.2, 0.2, 1.0);
 
-	for (int x = 0; x < 3; x++) {
-		cajas[x] = new cCaja();
+	int count = 0;
+	for (int row = 0; row < 2; row++) {
+		for (int col = 0; col < 3; col++) {
+			float row2 = row;
+			if (row2 > 0) {
+				row2 = 0.7f;
+			}
+			cajas[count++] = new cCaja(2,row2,col-1);
+		}
 	}
 	escenario = new cEscenario();
 	montaCarga = new cForklift();
@@ -131,10 +138,11 @@ void init(void)
 
 void collisions()
 {
-	for (int y = 0; y < 3; y++) {
+	for (int y = 0; y < 6; y++) {
 		bool crash = false;
 		if (cajas[y]->inCollision(montaCarga)) {
-			crash = true;
+			cajas[y]->visible = false;
+			//montaCarga->switchModel();
 			printf("Hay colision");
 			break;
 		}
@@ -164,23 +172,9 @@ void display(void)
 			escenario->draw();
 		}
 		glPopMatrix();
-		glPushMatrix();
-		{
-			cajas[0]->draw();
+		for (int i = 0; i < 6; i++) {
+			cajas[i]->draw();
 		}
-		glPopMatrix();
-		glPushMatrix();
-		{
-			glTranslated(0.0, 0.0, 1.0);
-			cajas[1]->draw();
-		}
-		glPopMatrix();
-		glPushMatrix();
-		{
-			glTranslated(0.0, 0.0, -1.0);
-			cajas[2]->draw();
-		}
-		glPopMatrix();
 	}
 	glPopMatrix();
 

@@ -11,9 +11,9 @@ cEscenario::cEscenario()
 
 	cajas = new cCaja*[NUM_CAJAS];
 
-	for (int c = 0; c < NUM_CAJAS; c++) {
+	/*for (int c = 0; c < NUM_CAJAS; c++) {
 		cajas[c] = new cCaja();
-	}
+	}*/
 }
 
 
@@ -28,11 +28,11 @@ void cEscenario::draw()
 	{
 		glPushMatrix();
 		{
-			glTranslated(0.0, -0.6, 0.0);
+			glTranslated(0.0, -0.3, 0.0);
 			glmDraw(piso, GLM_SMOOTH | GLM_TEXTURE);
 		}
 		glPopMatrix();
-		glPushMatrix();
+		/*glPushMatrix();
 		{
 			glTranslated(-4.0, 0.0, 0.0);
 			cajas[0]->draw();
@@ -70,7 +70,7 @@ void cEscenario::draw()
 			glTranslated(-4.0, 00.63, 0.7);
 			cajas[6]->draw();
 		}
-		glPopMatrix();
+		glPopMatrix();*/
 	}
 	glPopMatrix();
 
