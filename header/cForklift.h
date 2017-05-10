@@ -20,27 +20,26 @@
 class cForklift
 {
 public:
-    cForklift();
-    ~cForklift();
-    void update();
-    void draw();
-    void move(float fwdBack);
-    void rotate(float rotar);
-    void lift(float levantar);
-    void put(float bajar);
-    void switchModel();
-    GLMmodel* forkLift;
-    GLMmodel* conCaja;
-    GLMmodel* sinCaja;
-    GLMmodel* activo;
-    
-    
-    cFork* fork;
-    float pxFork;
-    float pzFork;
-    float upDown;
-    float mass;
-    float px;
-    float pz;
+	cForklift();
+	~cForklift();
+	void update();
+	void draw();
+	void move(float fwdBack);
+	void rotate(float rotar);
+	void lift(float levantar);
+	void put(float bajar);
+	void switchModel();
+	GLMmodel* conCaja;
+	GLMmodel* sinCaja;
+	GLMmodel* activo;
+
+
+	cFork* fork;
+	float pxFork;
+	float pzFork;
+	float upDown;
+	float mass;
+	float px;
+	float pz;
 };
 
