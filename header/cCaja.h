@@ -11,8 +11,8 @@
 #include <time.h>
 #include <stdio.h>
 #include <math.h>
-#include "glm.h" 
 #endif
+#include "glm.h"
 
 class cCaja
 {

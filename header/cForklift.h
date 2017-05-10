@@ -10,10 +10,9 @@
 #include "freeglut.h"
 #include <time.h>
 #include <stdio.h>
-#include <math.h> 
-#include "glm.h"
+#include <math.h>
 #endif
-
+#include "glm.h"
 #include "cFork.h"
 
 
