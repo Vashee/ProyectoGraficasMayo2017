@@ -142,8 +142,7 @@ void collisions()
 		bool crash = false;
 		if (cajas[y]->inCollision(montaCarga)) {
 			cajas[y]->visible = false;
-			//montaCarga->switchModel();
-			printf("Hay colision");
+			montaCarga->switchModel();
 			break;
 		}
 	}

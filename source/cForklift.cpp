@@ -1,7 +1,9 @@
 #include "cForklift.h"
+#include "cCaja.h"
 
 float yAngle, zeto, rot;
 float py = 0.335f;
+cCaja* cajita;
 
 cForklift::cForklift()
 {
@@ -15,6 +17,7 @@ cForklift::cForklift()
 	glmVertexNormals(sinCaja, 45.0f);
 	activo = sinCaja;
 
+	cajita = new cCaja(pxFork, upDown, pzFork);
 	fork = new cFork();
 	pxFork = -0.3f;
 	pzFork = 0.72f;

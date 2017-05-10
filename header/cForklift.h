@@ -33,7 +33,6 @@ public:
 	GLMmodel* sinCaja;
 	GLMmodel* activo;
 
-
 	cFork* fork;
 	float pxFork;
 	float pzFork;
