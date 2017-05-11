@@ -7,7 +7,7 @@ cCaja* cajita;
 
 cForklift::cForklift()
 {
-	conCaja = glmReadOBJ("assets/ForkLift/ForkLift.obj");
+	conCaja = glmReadOBJ("assets/ForkLift/ForkLiftCaja.obj");
 	glmUnitize(conCaja);
 	glmFacetNormals(conCaja);
 	glmVertexNormals(conCaja, 45.0f);
