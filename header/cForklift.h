@@ -34,6 +34,8 @@ public:
 	GLMmodel* activo;
 
 	cFork* fork;
+	bool cajaIs;
+	float rotM;
 	float pxFork;
 	float pzFork;
 	float upDown;

@@ -33,6 +33,7 @@ public:
 	void addForce(float *force);
 	bool inCollision(cForklift* other);
 	bool visible;
+	bool count;
 
 private:
 	void clearForces();

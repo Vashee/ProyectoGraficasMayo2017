@@ -16,6 +16,7 @@ cForklift::cForklift()
 	glmFacetNormals(sinCaja);
 	glmVertexNormals(sinCaja, 45.0f);
 	activo = sinCaja;
+	cajaIs = false;
 
 	cajita = new cCaja(pxFork, upDown, pzFork);
 	fork = new cFork();
@@ -58,6 +59,7 @@ void cForklift::move(float fwdBack) {
 
 void cForklift::rotate(float rotar) {
 	rot = rot + rotar;
+	rotM = rot;
 }
 
 void cForklift::lift(float levantar) {

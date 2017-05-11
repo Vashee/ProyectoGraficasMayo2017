@@ -12,6 +12,7 @@ cCaja::cCaja(float x1, float y1, float z1)
 	mass = 0.55f;
 	radius = mass;
 	visible=true;
+	count = false;
 
 	x = x1;
 	y = y1;
