@@ -23,8 +23,6 @@
 #define DO_ROTATION_X
 #define  RADDEG  57.29577951f
 
-char		bufferFPS[11];
-
 float XUP[3] = { 1,0,0 }, XUN[3] = { -1, 0, 0 },
 YUP[3] = { 0,1,0 }, YUN[3] = { 0,-1, 0 },
 ZUP[3] = { 0,0,1 }, ZUN[3] = { 0, 0,-1 },
@@ -42,12 +40,17 @@ GLfloat*	mat0_shininess;
 GLfloat*	light0_position;
 GLfloat*	light1_position;
 
+int counter=0;
 cCaja* cajas[6];
 cEscenario* escenario;
 cForklift* montaCarga;
 GLfloat deltaX, deltaY;
 
-void displayText(int x, int y, char* txt);
+long frames, time_,timebase=0;
+unsigned long frameCount;
+float fps = 0.0;
+char bufferFPS[11];
+void displayText(int x, int y, char *txt);
 
 void mouse(int button, int state, int x, int y)
 {
@@ -143,6 +146,7 @@ void collisions()
         if (cajas[y]->inCollision(montaCarga)) {
             cajas[y]->visible = false;
             montaCarga->switchModel();
+            printf("Hay colision");
             break;
         }
     }
@@ -176,12 +180,21 @@ void display(void)
         }
     }
     glPopMatrix();
-    
+    displayText(5,20,bufferFPS);
     glutSwapBuffers();
 }
 
 void idle(void)
 {
+    frames++;
+    time_=glutGet(GLUT_ELAPSED_TIME);
+    if (time_ - timebase > 1000) {
+        fps = frames*1000.0f/(time_-timebase);
+        sprintf (bufferFPS,"FPS:%4.2f\n, Score:%d",time_/1000.0f, counter);
+        timebase = time_;
+        frames = 0;
+    }
+    
     rotationY += 0.08f;
     if (rotationY > 360)
     {
@@ -247,6 +260,7 @@ void displayText(int x, int y, char* txt)
 
 int main(int argc, char** argv)
 {
+    srand(time(NULL));
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(1000, 1000);
